@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE39C2391663CB04009D97A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C2381663CB04009D97A4 /* UIKit.framework */; };
+		BE39C23B1663CB04009D97A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C23A1663CB04009D97A4 /* Foundation.framework */; };
+		BE39C23D1663CB04009D97A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C23C1663CB04009D97A4 /* CoreGraphics.framework */; };
+		BE39C2431663CB04009D97A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE39C2411663CB04009D97A4 /* InfoPlist.strings */; };
+		BE39C2451663CB04009D97A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C2441663CB04009D97A4 /* main.m */; };
+		BE39C2491663CB04009D97A4 /* WWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C2481663CB04009D97A4 /* WWAppDelegate.m */; };
+		BE39C24B1663CB04009D97A4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BE39C24A1663CB04009D97A4 /* Default.png */; };
+		BE39C24D1663CB04009D97A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE39C24C1663CB04009D97A4 /* Default@2x.png */; };
+		BE39C24F1663CB04009D97A4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE39C24E1663CB04009D97A4 /* Default-568h@2x.png */; };
+		BE39C2521663CB04009D97A4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE39C2501663CB04009D97A4 /* MainStoryboard_iPhone.storyboard */; };
+		BE39C2551663CB04009D97A4 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE39C2531663CB04009D97A4 /* MainStoryboard_iPad.storyboard */; };
+		BE39C2581663CB04009D97A4 /* WWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C2571663CB04009D97A4 /* WWViewController.m */; };
+		BE39C2601663CB04009D97A4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C25F1663CB04009D97A4 /* SenTestingKit.framework */; };
+		BE39C2611663CB04009D97A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C2381663CB04009D97A4 /* UIKit.framework */; };
+		BE39C2621663CB04009D97A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C23A1663CB04009D97A4 /* Foundation.framework */; };
+		BE39C26A1663CB05009D97A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE39C2681663CB05009D97A4 /* InfoPlist.strings */; };
+		BE39C26D1663CB05009D97A4 /* WordwarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C26C1663CB05009D97A4 /* WordwarsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE39C2631663CB04009D97A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE39C22B1663CB04009D97A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE39C2331663CB04009D97A4;
+			remoteInfo = Wordwars;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE39C2341663CB04009D97A4 /* Wordwars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordwars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE39C2381663CB04009D97A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE39C23A1663CB04009D97A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE39C23C1663CB04009D97A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE39C2401663CB04009D97A4 /* Wordwars-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wordwars-Info.plist"; sourceTree = "<group>"; };
+		BE39C2421663CB04009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE39C2441663CB04009D97A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE39C2461663CB04009D97A4 /* Wordwars-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordwars-Prefix.pch"; sourceTree = "<group>"; };
+		BE39C2471663CB04009D97A4 /* WWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWAppDelegate.h; sourceTree = "<group>"; };
+		BE39C2481663CB04009D97A4 /* WWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWAppDelegate.m; sourceTree = "<group>"; };
+		BE39C24A1663CB04009D97A4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		BE39C24C1663CB04009D97A4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		BE39C24E1663CB04009D97A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BE39C2511663CB04009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BE39C2541663CB04009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BE39C2561663CB04009D97A4 /* WWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWViewController.h; sourceTree = "<group>"; };
+		BE39C2571663CB04009D97A4 /* WWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWViewController.m; sourceTree = "<group>"; };
+		BE39C25E1663CB04009D97A4 /* WordwarsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordwarsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE39C25F1663CB04009D97A4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BE39C2671663CB04009D97A4 /* WordwarsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WordwarsTests-Info.plist"; sourceTree = "<group>"; };
+		BE39C2691663CB05009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BE39C26B1663CB05009D97A4 /* WordwarsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordwarsTests.h; sourceTree = "<group>"; };
+		BE39C26C1663CB05009D97A4 /* WordwarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordwarsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE39C2311663CB04009D97A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C2391663CB04009D97A4 /* UIKit.framework in Frameworks */,
+				BE39C23B1663CB04009D97A4 /* Foundation.framework in Frameworks */,
+				BE39C23D1663CB04009D97A4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE39C25A1663CB04009D97A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C2601663CB04009D97A4 /* SenTestingKit.framework in Frameworks */,
+				BE39C2611663CB04009D97A4 /* UIKit.framework in Frameworks */,
+				BE39C2621663CB04009D97A4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE39C2291663CB04009D97A4 = {
+			isa = PBXGroup;
+			children = (
+				BE39C23E1663CB04009D97A4 /* Wordwars */,
+				BE39C2651663CB04009D97A4 /* WordwarsTests */,
+				BE39C2371663CB04009D97A4 /* Frameworks */,
+				BE39C2351663CB04009D97A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE39C2351663CB04009D97A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2341663CB04009D97A4 /* Wordwars.app */,
+				BE39C25E1663CB04009D97A4 /* WordwarsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE39C2371663CB04009D97A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2381663CB04009D97A4 /* UIKit.framework */,
+				BE39C23A1663CB04009D97A4 /* Foundation.framework */,
+				BE39C23C1663CB04009D97A4 /* CoreGraphics.framework */,
+				BE39C25F1663CB04009D97A4 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE39C23E1663CB04009D97A4 /* Wordwars */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2471663CB04009D97A4 /* WWAppDelegate.h */,
+				BE39C2481663CB04009D97A4 /* WWAppDelegate.m */,
+				BE39C2501663CB04009D97A4 /* MainStoryboard_iPhone.storyboard */,
+				BE39C2531663CB04009D97A4 /* MainStoryboard_iPad.storyboard */,
+				BE39C2561663CB04009D97A4 /* WWViewController.h */,
+				BE39C2571663CB04009D97A4 /* WWViewController.m */,
+				BE39C23F1663CB04009D97A4 /* Supporting Files */,
+			);
+			path = Wordwars;
+			sourceTree = "<group>";
+		};
+		BE39C23F1663CB04009D97A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2401663CB04009D97A4 /* Wordwars-Info.plist */,
+				BE39C2411663CB04009D97A4 /* InfoPlist.strings */,
+				BE39C2441663CB04009D97A4 /* main.m */,
+				BE39C2461663CB04009D97A4 /* Wordwars-Prefix.pch */,
+				BE39C24A1663CB04009D97A4 /* Default.png */,
+				BE39C24C1663CB04009D97A4 /* Default@2x.png */,
+				BE39C24E1663CB04009D97A4 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE39C2651663CB04009D97A4 /* WordwarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C26B1663CB05009D97A4 /* WordwarsTests.h */,
+				BE39C26C1663CB05009D97A4 /* WordwarsTests.m */,
+				BE39C2661663CB04009D97A4 /* Supporting Files */,
+			);
+			path = WordwarsTests;
+			sourceTree = "<group>";
+		};
+		BE39C2661663CB04009D97A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2671663CB04009D97A4 /* WordwarsTests-Info.plist */,
+				BE39C2681663CB05009D97A4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE39C2331663CB04009D97A4 /* Wordwars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE39C2701663CB05009D97A4 /* Build configuration list for PBXNativeTarget "Wordwars" */;
+			buildPhases = (
+				BE39C2301663CB04009D97A4 /* Sources */,
+				BE39C2311663CB04009D97A4 /* Frameworks */,
+				BE39C2321663CB04009D97A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wordwars;
+			productName = Wordwars;
+			productReference = BE39C2341663CB04009D97A4 /* Wordwars.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE39C25D1663CB04009D97A4 /* WordwarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE39C2731663CB05009D97A4 /* Build configuration list for PBXNativeTarget "WordwarsTests" */;
+			buildPhases = (
+				BE39C2591663CB04009D97A4 /* Sources */,
+				BE39C25A1663CB04009D97A4 /* Frameworks */,
+				BE39C25B1663CB04009D97A4 /* Resources */,
+				BE39C25C1663CB04009D97A4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE39C2641663CB04009D97A4 /* PBXTargetDependency */,
+			);
+			name = WordwarsTests;
+			productName = WordwarsTests;
+			productReference = BE39C25E1663CB04009D97A4 /* WordwarsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE39C22B1663CB04009D97A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WW;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Alex Winston";
+			};
+			buildConfigurationList = BE39C22E1663CB04009D97A4 /* Build configuration list for PBXProject "Wordwars" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE39C2291663CB04009D97A4;
+			productRefGroup = BE39C2351663CB04009D97A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE39C2331663CB04009D97A4 /* Wordwars */,
+				BE39C25D1663CB04009D97A4 /* WordwarsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE39C2321663CB04009D97A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C2431663CB04009D97A4 /* InfoPlist.strings in Resources */,
+				BE39C24B1663CB04009D97A4 /* Default.png in Resources */,
+				BE39C24D1663CB04009D97A4 /* Default@2x.png in Resources */,
+				BE39C24F1663CB04009D97A4 /* Default-568h@2x.png in Resources */,
+				BE39C2521663CB04009D97A4 /* MainStoryboard_iPhone.storyboard in Resources */,
+				BE39C2551663CB04009D97A4 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE39C25B1663CB04009D97A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C26A1663CB05009D97A4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE39C25C1663CB04009D97A4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE39C2301663CB04009D97A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C2451663CB04009D97A4 /* main.m in Sources */,
+				BE39C2491663CB04009D97A4 /* WWAppDelegate.m in Sources */,
+				BE39C2581663CB04009D97A4 /* WWViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE39C2591663CB04009D97A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE39C26D1663CB05009D97A4 /* WordwarsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE39C2641663CB04009D97A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE39C2331663CB04009D97A4 /* Wordwars */;
+			targetProxy = BE39C2631663CB04009D97A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE39C2411663CB04009D97A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE39C2421663CB04009D97A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BE39C2501663CB04009D97A4 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE39C2511663CB04009D97A4 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		BE39C2531663CB04009D97A4 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE39C2541663CB04009D97A4 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		BE39C2681663CB05009D97A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE39C2691663CB05009D97A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE39C26E1663CB05009D97A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE39C26F1663CB05009D97A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE39C2711663CB05009D97A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
+				INFOPLIST_FILE = "Wordwars/Wordwars-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BE39C2721663CB05009D97A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
+				INFOPLIST_FILE = "Wordwars/Wordwars-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BE39C2741663CB05009D97A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Wordwars.app/Wordwars";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
+				INFOPLIST_FILE = "WordwarsTests/WordwarsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BE39C2751663CB05009D97A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Wordwars.app/Wordwars";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
+				INFOPLIST_FILE = "WordwarsTests/WordwarsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE39C22E1663CB04009D97A4 /* Build configuration list for PBXProject "Wordwars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE39C26E1663CB05009D97A4 /* Debug */,
+				BE39C26F1663CB05009D97A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE39C2701663CB05009D97A4 /* Build configuration list for PBXNativeTarget "Wordwars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE39C2711663CB05009D97A4 /* Debug */,
+				BE39C2721663CB05009D97A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BE39C2731663CB05009D97A4 /* Build configuration list for PBXNativeTarget "WordwarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE39C2741663CB05009D97A4 /* Debug */,
+				BE39C2751663CB05009D97A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE39C22B1663CB04009D97A4 /* Project object */;
+}
