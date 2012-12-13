@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (WWAdditions)
-
+- (UIColor *)colorByDarkeningColor:(CGFloat)amount;
 @end

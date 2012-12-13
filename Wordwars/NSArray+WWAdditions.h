@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface NSArray (WWAdditions)
+- (BOOL)isContiguous;
+- (BOOL)containsOnlyObjects:(NSArray *)array;
+- (BOOL)containsNoObjects:(NSArray *)array;
+@end
 
+@interface NSMutableArray (WWAdditions)
+- (NSMutableArray *)shuffle;
 @end

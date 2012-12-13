@@ -10,11 +10,18 @@
 
 @implementation WWPlayerPointsView
 
-- (id)initWithFrame:(CGRect)frame
+@synthesize player=_player;
+
+- (id)initWithFrame:(CGRect)frame player:(WWPlayer *)player
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _player = player;
+        
+        self.textAlignment = UITextAlignmentCenter;
+        self.text = [NSString stringWithFormat:@"%d", player.points];
+        self.textColor = [UIColor blackColor];
+        self.backgroundColor = _player.color;
     }
     return self;
 }

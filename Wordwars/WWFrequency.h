@@ -9,5 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface WWFrequency : NSObject
-
+{
+    @private
+    NSMutableDictionary *_cumulativeFrequencies;
+    NSArray *_frequencyKeys;
+}
+@property (nonatomic, readonly, strong) NSDictionary *cumulativeFrequencies;
++(WWFrequency *) frequencyWithDistributionFrequencies:(NSDictionary *)distributionFrequencies;
+-(WWFrequency *) initWithDistributionFrequencies:(NSDictionary *)distributionFrequencies;
+-(NSString *) stringForCumulativeFrequency:(double)cumulativeFrequency;
+-(NSString *) stringForRandomCulmulativeFrequency;
 @end

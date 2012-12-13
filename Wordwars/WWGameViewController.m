@@ -9,6 +9,9 @@
 #import "WWGameViewController.h"
 
 #import "NSArray+WWAdditions.h"
+#import "UIAlertView+WWAdditions.h"
+
+#import "WWGameCenterSerialization.h"
 
 @interface WWGameViewController ()
 @end
@@ -18,18 +21,29 @@
 @synthesize dragObject;
 @synthesize touchOffset;
 
-- (WWGameViewController *)initWithGame:(WWGame *)game
+- (WWGameViewController *)initWithMatch:(GKTurnBasedMatch *)match game:(WWGame *)game
 {
+    NSLog(@"initWithGame:");
     if (self = [super init]) {
+        _match = match;
         _game = game;
         _game.delegate = self;
     }
     return self;
 }
 
+- (void)loadView
+{
+    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    self.view = view;
+}
+
 - (void)viewDidLoad
 {
     NSLog(@"viewDidLoad");
+    NSLog(@"%@", self.navigationController);
     [super viewDidLoad];
     
     _gameViewConstraints = [[WWGameViewConstraints alloc] initWithGame:_game
@@ -94,6 +108,15 @@
     _currentPlayerIndicatorView = [[UIView alloc] initWithFrame:[_gameViewConstraints frameForPlayerIndicatorWithPlayer:_game.currentTurn.player]];
     _currentPlayerIndicatorView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_currentPlayerIndicatorView];
+    
+    // Initialize any played turns for this game
+    for (WWTurn *turn in _game.playedTurns) {
+        for (WWMove *move in turn.moves) {
+            [self.view addSubview:[[WWTileView alloc] initWithFrame:[_gameViewConstraints frameForPositionAtRow:move.position.row column:move.position.column]
+                                                               tile:move.tile
+                                                    backgroundColor:[UIColor redColor]]];
+        }
+    }
 }
 
 - (void)rackTilesForPlayer:(WWPlayer *)player {
@@ -115,7 +138,7 @@
 
 - (void)undoMovedTileView:(WWTileView *)tileView
 {
-    [_game.currentTurn removeMoveWithTile:tileView.tile];
+    [_game.currentTurn removeMovesWithTile:tileView.tile];
     [tileView moveToRack];
     
     self.dragObject = nil;
@@ -152,23 +175,45 @@
     [self undoMovedTileViews];
 }
 
+- (void)resign
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)submitTouched
 {
     // Submitting without any moves prompts to skip turn or swap tiles
     if (!_game.currentTurn.hasMoves) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No tiles played"
                                                         message:@"Do you want to end your turn?"
-                                                       delegate:self
+                                                completionBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
+                                                    if (buttonIndex == 0)
+                                                        [_game swapTilesForCurrentTurn];
+                                                    else if (buttonIndex == 1)
+                                                        [_game skipCurrentTurn];
+                                                    else if (buttonIndex == 2)
+                                                        [self resign];
+                                                    else if (buttonIndex == alertView.cancelButtonIndex)
+                                                        NSLog(@"Canceled");
+                                                }
                                               cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Swap Tiles", @"Skip Turn", nil];
+                                              otherButtonTitles:@"Swap Tiles", @"Skip Turn", @"Resign", nil];
         [alert show];
         
         return;
     }
     
-    if (![_game playCurrentTurn]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"Invalid word or tile placement"
+    if ([_game playCurrentTurn]) {
+        [_match endTurnWithNextParticipant:[_match.participants objectAtIndex:[_game playerNumberForPlayer:_game.currentTurn.player]]
+                                 matchData:[WWGameCenterSerialization dataFromGame:_game]
+                         completionHandler:^(NSError *error) {
+                             if (error) {
+                                 NSLog(@"endTurnWithNextParticipant:%@", [error localizedDescription]);
+                             }
+                         }];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid word or tile placement"
+                                                        message:@""
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -176,11 +221,11 @@
     }
 }
 
-- (void)updatePlayerPoints
+- (void)updatePlayerPointLabels
 {
     for (WWPlayer *player in _game.players) {
         UILabel *playerPointsLabel = [_playerPointLabels objectForKey:player.name];
-        playerPointsLabel.text = [NSString stringWithFormat:@"%d", [_game pointsForPlayer:player]];
+        playerPointsLabel.text = [NSString stringWithFormat:@"%d", player.points];
     }
 }
 
@@ -212,14 +257,6 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        [_game swapTilesForCurrentTurn];
-    } else if (buttonIndex == 2) {
-        [_game skipCurrentTurn];
-    }
-}
 #pragma mark - UIResponder methods
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -271,7 +308,7 @@
         CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
         if (CGRectContainsPoint(_gameViewConstraints.rackRect, touchPoint)) {
             touchesEndedCenterPoint = self.dragObject.rackCenterPoint;
-            [_game.currentTurn removeMoveWithTile:self.dragObject.tile];
+            [_game.currentTurn removeMovesWithTile:self.dragObject.tile];
         }
         
         for (WWPositionView *positionView in _positionViews) {
@@ -297,7 +334,7 @@
 
 - (void)game:(WWGame *)game didChangeMoves:(NSArray *)moves forTurn:(WWTurn *)turn
 {
-    [self updatePlayerPoints];
+    [self updatePlayerPointLabels];
     [self showHideClearShuffleLabels:moves];
 }
 
@@ -314,16 +351,16 @@
 - (void)game:(WWGame *)game didEndTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
 {
     // Remove the last tiles played for this player
-    [[_playersLastMoveTileViews objectForKey:game.lastTurn.player.name] removeAllObjects];
+    [[_playersLastMoveTileViews objectForKey:player.name] removeAllObjects];
     
     // Disable interaction with the tiles played during the last turn
     for (WWTileView *tileView in _tileViews) {
         tileView.userInteractionEnabled = NO;
         // Remove unplayed rack tiles from the view, otherwise add them to the list of last tiles played
-        if (![_game.lastTurn movesContainTile:tileView.tile])
+        if (![turn containsTile:tileView.tile])
             [tileView removeFromSuperview];
         else
-            [[_playersLastMoveTileViews objectForKey:game.lastTurn.player.name] addObject:tileView];
+            [[_playersLastMoveTileViews objectForKey:player.name] addObject:tileView];
     }
     [_tileViews removeAllObjects];
 }
@@ -332,8 +369,11 @@
 {
     // TODO Disable action labels when game is finished
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                    message:[NSString stringWithFormat:@"%@ won with %d points", [players valueForKeyPath:@"name"], points]
-                                                   delegate:nil
+                                                    message:[NSString stringWithFormat:@"%@ won with %d points", [[players valueForKeyPath:@"name"] componentsJoinedByString:@"," ], points]
+                                            completionBlock:^(UIAlertView *alertView, NSUInteger buttonIndex) {
+                                                if (buttonIndex == alertView.cancelButtonIndex)
+                                                    [self.navigationController popViewControllerAnimated:YES];
+                                            }
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];

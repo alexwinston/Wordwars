@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWPlayerPointsView : UIView
+#import "WWPlayer.h"
 
+@interface WWPlayerPointsView : UILabel
+{
+    @private
+    WWPlayer *_player;
+}
+@property(nonatomic, readonly, strong) WWPlayer *player;
+- (id)initWithFrame:(CGRect)frame player:(WWPlayer *)player;
 @end

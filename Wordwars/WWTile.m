@@ -10,4 +10,23 @@
 
 @implementation WWTile
 
+@synthesize letter=_letter;
+@synthesize points=_points;
+
++(WWTile *) tileWithLetter:(NSString *)letter points:(int)points
+{
+    return [[WWTile alloc] initWithLetter:letter points:points];
+}
+
+-(WWTile *) initWithLetter:(NSString *)letter points:(int)points
+{
+    if (self = [super init])
+    {
+        _letter = letter;
+        _points = points;
+    }
+    
+    return self;
+}
+
 @end

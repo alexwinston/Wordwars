@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWPositionView : UIView
+#import "WWPosition.h"
 
+@interface WWPositionView : UIView
+{
+    @private
+    WWPosition *_position;
+}
+@property(nonatomic, readonly, strong) WWPosition *position;
+- (id)initWithFrame:(CGRect)frame position:(WWPosition *)position;
 @end

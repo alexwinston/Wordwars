@@ -8,6 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface WordwarsTests : SenTestCase
+#import "WWGame.h"
 
+@interface WordwarsTests : SenTestCase <WWGameDelegate>
+{
+    BOOL _gameFinished;
+}
 @end

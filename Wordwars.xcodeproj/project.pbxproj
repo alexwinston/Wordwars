@@ -24,6 +24,33 @@
 		BE39C2621663CB04009D97A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C23A1663CB04009D97A4 /* Foundation.framework */; };
 		BE39C26A1663CB05009D97A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE39C2681663CB05009D97A4 /* InfoPlist.strings */; };
 		BE39C26D1663CB05009D97A4 /* WordwarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C26C1663CB05009D97A4 /* WordwarsTests.m */; };
+		BE39C2781663DA43009D97A4 /* WWFrequency.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C2771663DA43009D97A4 /* WWFrequency.m */; };
+		BE39C27D16641162009D97A4 /* WWTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C27C16641162009D97A4 /* WWTile.m */; };
+		BE39C2811664179B009D97A4 /* WWPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C2801664179B009D97A4 /* WWPlayer.m */; };
+		BE39C28516641A2D009D97A4 /* WWBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C28416641A2D009D97A4 /* WWBoard.m */; };
+		BE39C28916641B19009D97A4 /* WWPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C28816641B19009D97A4 /* WWPosition.m */; };
+		BE39C28D16641B20009D97A4 /* WWMove.m in Sources */ = {isa = PBXBuildFile; fileRef = BE39C28C16641B20009D97A4 /* WWMove.m */; };
+		BE3EFBFC166AAF6100D64D2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3EFBFA166AA83500D64D2F /* QuartzCore.framework */; };
+		BE3EFC03166C357400D64D2F /* WWPositionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EFC02166C357400D64D2F /* WWPositionView.m */; };
+		BE3EFC06166D276700D64D2F /* UIColor+WWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EFC05166D276700D64D2F /* UIColor+WWAdditions.m */; };
+		BE3EFC09166D3BDA00D64D2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE39C23C1663CB04009D97A4 /* CoreGraphics.framework */; };
+		BE3EFC0B166D69DE00D64D2F /* twl06.dic in Resources */ = {isa = PBXBuildFile; fileRef = BE3EFC0A166D69DE00D64D2F /* twl06.dic */; };
+		BE3EFC0C166D69DE00D64D2F /* twl06.dic in Resources */ = {isa = PBXBuildFile; fileRef = BE3EFC0A166D69DE00D64D2F /* twl06.dic */; };
+		BE3EFC0F166E5CDE00D64D2F /* WWGameViewConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EFC0E166E5CDD00D64D2F /* WWGameViewConstraints.m */; };
+		BE3EFC12166E941700D64D2F /* WWPlayerPointsView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EFC11166E941600D64D2F /* WWPlayerPointsView.m */; };
+		BE4A27D5166515B000E1EA5D /* WWGame.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A27D4166515B000E1EA5D /* WWGame.m */; };
+		BE4A27DA16654C2300E1EA5D /* WWTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A27D916654C2200E1EA5D /* WWTurn.m */; };
+		BE7FF07D1671575B00100206 /* UIAlertView+WWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FF07C1671575A00100206 /* UIAlertView+WWAdditions.m */; };
+		BE7FF082167266C100100206 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7FF081167266C100100206 /* GameKit.framework */; };
+		BE7FF08516726BBD00100206 /* GCTurnBasedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FF08416726BBD00100206 /* GCTurnBasedMatchHelper.m */; };
+		BE7FF0881677AE3B00100206 /* NSData+GZip.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FF0871677AE3B00100206 /* NSData+GZip.m */; };
+		BE7FF08A1677AE7C00100206 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7FF0891677AE7B00100206 /* libz.dylib */; };
+		BE7FF08D1677F02600100206 /* WWGameCenterSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7FF08C1677F02600100206 /* WWGameCenterSerialization.m */; };
+		BEC1472F16667D2100927E21 /* NSArray+WWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC1472E16667D2100927E21 /* NSArray+WWAdditions.m */; };
+		BED80F8A16690D4800F1F3D7 /* WWTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = BED80F8916690D4800F1F3D7 /* WWTileView.m */; };
+		BEFBBF08166EB66F00693092 /* wordwars57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = BEFBBF07166EB66F00693092 /* wordwars57x57.png */; };
+		BEFBBF0A166EB6AD00693092 /* wordwars114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = BEFBBF09166EB6AD00693092 /* wordwars114x114.png */; };
+		BEFBBF0D16711E3900693092 /* WWGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFBBF0C16711E3900693092 /* WWGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +79,6 @@
 		BE39C24E1663CB04009D97A4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BE39C2511663CB04009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		BE39C2541663CB04009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		BE39C2561663CB04009D97A4 /* WWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWViewController.h; sourceTree = "<group>"; };
 		BE39C2571663CB04009D97A4 /* WWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWViewController.m; sourceTree = "<group>"; };
 		BE39C25E1663CB04009D97A4 /* WordwarsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordwarsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE39C25F1663CB04009D97A4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -60,6 +86,51 @@
 		BE39C2691663CB05009D97A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE39C26B1663CB05009D97A4 /* WordwarsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordwarsTests.h; sourceTree = "<group>"; };
 		BE39C26C1663CB05009D97A4 /* WordwarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordwarsTests.m; sourceTree = "<group>"; };
+		BE39C2761663DA43009D97A4 /* WWFrequency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFrequency.h; sourceTree = "<group>"; };
+		BE39C2771663DA43009D97A4 /* WWFrequency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWFrequency.m; sourceTree = "<group>"; };
+		BE39C27B16641162009D97A4 /* WWTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWTile.h; sourceTree = "<group>"; };
+		BE39C27C16641162009D97A4 /* WWTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWTile.m; sourceTree = "<group>"; };
+		BE39C27F1664179B009D97A4 /* WWPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPlayer.h; sourceTree = "<group>"; };
+		BE39C2801664179B009D97A4 /* WWPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPlayer.m; sourceTree = "<group>"; };
+		BE39C28316641A2D009D97A4 /* WWBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWBoard.h; sourceTree = "<group>"; };
+		BE39C28416641A2D009D97A4 /* WWBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWBoard.m; sourceTree = "<group>"; };
+		BE39C28716641B19009D97A4 /* WWPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPosition.h; sourceTree = "<group>"; };
+		BE39C28816641B19009D97A4 /* WWPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPosition.m; sourceTree = "<group>"; };
+		BE39C28B16641B20009D97A4 /* WWMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMove.h; sourceTree = "<group>"; };
+		BE39C28C16641B20009D97A4 /* WWMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMove.m; sourceTree = "<group>"; };
+		BE3EFBFA166AA83500D64D2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE3EFC01166C357400D64D2F /* WWPositionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPositionView.h; sourceTree = "<group>"; };
+		BE3EFC02166C357400D64D2F /* WWPositionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPositionView.m; sourceTree = "<group>"; };
+		BE3EFC04166D276700D64D2F /* UIColor+WWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WWAdditions.h"; sourceTree = "<group>"; };
+		BE3EFC05166D276700D64D2F /* UIColor+WWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WWAdditions.m"; sourceTree = "<group>"; };
+		BE3EFC0A166D69DE00D64D2F /* twl06.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = twl06.dic; sourceTree = "<group>"; };
+		BE3EFC0D166E5CDC00D64D2F /* WWGameViewConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWGameViewConstraints.h; sourceTree = "<group>"; };
+		BE3EFC0E166E5CDD00D64D2F /* WWGameViewConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWGameViewConstraints.m; sourceTree = "<group>"; };
+		BE3EFC10166E941600D64D2F /* WWPlayerPointsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPlayerPointsView.h; sourceTree = "<group>"; };
+		BE3EFC11166E941600D64D2F /* WWPlayerPointsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPlayerPointsView.m; sourceTree = "<group>"; };
+		BE4A27D3166515B000E1EA5D /* WWGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWGame.h; sourceTree = "<group>"; };
+		BE4A27D4166515B000E1EA5D /* WWGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWGame.m; sourceTree = "<group>"; };
+		BE4A27D816654C2200E1EA5D /* WWTurn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWTurn.h; sourceTree = "<group>"; };
+		BE4A27D916654C2200E1EA5D /* WWTurn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWTurn.m; sourceTree = "<group>"; };
+		BE7FF07B1671575A00100206 /* UIAlertView+WWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+WWAdditions.h"; path = "../UIAlertView+WWAdditions.h"; sourceTree = "<group>"; };
+		BE7FF07C1671575A00100206 /* UIAlertView+WWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+WWAdditions.m"; path = "../UIAlertView+WWAdditions.m"; sourceTree = "<group>"; };
+		BE7FF081167266C100100206 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		BE7FF08316726BBD00100206 /* GCTurnBasedMatchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCTurnBasedMatchHelper.h; path = ../GCTurnBasedMatchHelper.h; sourceTree = "<group>"; };
+		BE7FF08416726BBD00100206 /* GCTurnBasedMatchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCTurnBasedMatchHelper.m; path = ../GCTurnBasedMatchHelper.m; sourceTree = "<group>"; };
+		BE7FF0861677AE3A00100206 /* NSData+GZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZip.h"; sourceTree = "<group>"; };
+		BE7FF0871677AE3B00100206 /* NSData+GZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZip.m"; sourceTree = "<group>"; };
+		BE7FF0891677AE7B00100206 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BE7FF08B1677F02600100206 /* WWGameCenterSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWGameCenterSerialization.h; sourceTree = "<group>"; };
+		BE7FF08C1677F02600100206 /* WWGameCenterSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWGameCenterSerialization.m; sourceTree = "<group>"; };
+		BEC1472D16667D2100927E21 /* NSArray+WWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WWAdditions.h"; sourceTree = "<group>"; };
+		BEC1472E16667D2100927E21 /* NSArray+WWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WWAdditions.m"; sourceTree = "<group>"; };
+		BED80F8816690D4800F1F3D7 /* WWTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWTileView.h; sourceTree = "<group>"; };
+		BED80F8916690D4800F1F3D7 /* WWTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWTileView.m; sourceTree = "<group>"; };
+		BEFBBF07166EB66F00693092 /* wordwars57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordwars57x57.png; sourceTree = "<group>"; };
+		BEFBBF09166EB6AD00693092 /* wordwars114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wordwars114x114.png; sourceTree = "<group>"; };
+		BEFBBF0B16711E3800693092 /* WWGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWGameViewController.h; sourceTree = "<group>"; };
+		BEFBBF0C16711E3900693092 /* WWGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWGameViewController.m; sourceTree = "<group>"; };
+		BEFBBF0E1671221F00693092 /* WWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +138,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7FF08A1677AE7C00100206 /* libz.dylib in Frameworks */,
+				BE7FF082167266C100100206 /* GameKit.framework in Frameworks */,
+				BE3EFBFC166AAF6100D64D2F /* QuartzCore.framework in Frameworks */,
 				BE39C2391663CB04009D97A4 /* UIKit.framework in Frameworks */,
 				BE39C23B1663CB04009D97A4 /* Foundation.framework in Frameworks */,
 				BE39C23D1663CB04009D97A4 /* CoreGraphics.framework in Frameworks */,
@@ -77,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3EFC09166D3BDA00D64D2F /* CoreGraphics.framework in Frameworks */,
 				BE39C2601663CB04009D97A4 /* SenTestingKit.framework in Frameworks */,
 				BE39C2611663CB04009D97A4 /* UIKit.framework in Frameworks */,
 				BE39C2621663CB04009D97A4 /* Foundation.framework in Frameworks */,
@@ -89,6 +164,9 @@
 		BE39C2291663CB04009D97A4 = {
 			isa = PBXGroup;
 			children = (
+				BE7FF0891677AE7B00100206 /* libz.dylib */,
+				BEFBBF09166EB6AD00693092 /* wordwars114x114.png */,
+				BEFBBF07166EB66F00693092 /* wordwars57x57.png */,
 				BE39C23E1663CB04009D97A4 /* Wordwars */,
 				BE39C2651663CB04009D97A4 /* WordwarsTests */,
 				BE39C2371663CB04009D97A4 /* Frameworks */,
@@ -108,6 +186,8 @@
 		BE39C2371663CB04009D97A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE7FF081167266C100100206 /* GameKit.framework */,
+				BE3EFBFA166AA83500D64D2F /* QuartzCore.framework */,
 				BE39C2381663CB04009D97A4 /* UIKit.framework */,
 				BE39C23A1663CB04009D97A4 /* Foundation.framework */,
 				BE39C23C1663CB04009D97A4 /* CoreGraphics.framework */,
@@ -119,13 +199,24 @@
 		BE39C23E1663CB04009D97A4 /* Wordwars */ = {
 			isa = PBXGroup;
 			children = (
+				BE39C23F1663CB04009D97A4 /* Supporting Files */,
+				BE7FF08E1678E23C00100206 /* Categories */,
+				BE7FF08F1678E27100100206 /* Model */,
+				BE7FF0901678E39200100206 /* View */,
 				BE39C2471663CB04009D97A4 /* WWAppDelegate.h */,
 				BE39C2481663CB04009D97A4 /* WWAppDelegate.m */,
 				BE39C2501663CB04009D97A4 /* MainStoryboard_iPhone.storyboard */,
 				BE39C2531663CB04009D97A4 /* MainStoryboard_iPad.storyboard */,
-				BE39C2561663CB04009D97A4 /* WWViewController.h */,
+				BEFBBF0E1671221F00693092 /* WWViewController.h */,
 				BE39C2571663CB04009D97A4 /* WWViewController.m */,
-				BE39C23F1663CB04009D97A4 /* Supporting Files */,
+				BEFBBF0B16711E3800693092 /* WWGameViewController.h */,
+				BEFBBF0C16711E3900693092 /* WWGameViewController.m */,
+				BE7FF08316726BBD00100206 /* GCTurnBasedMatchHelper.h */,
+				BE7FF08416726BBD00100206 /* GCTurnBasedMatchHelper.m */,
+				BE7FF08B1677F02600100206 /* WWGameCenterSerialization.h */,
+				BE7FF08C1677F02600100206 /* WWGameCenterSerialization.m */,
+				BE3EFC0D166E5CDC00D64D2F /* WWGameViewConstraints.h */,
+				BE3EFC0E166E5CDD00D64D2F /* WWGameViewConstraints.m */,
 			);
 			path = Wordwars;
 			sourceTree = "<group>";
@@ -140,6 +231,7 @@
 				BE39C24A1663CB04009D97A4 /* Default.png */,
 				BE39C24C1663CB04009D97A4 /* Default@2x.png */,
 				BE39C24E1663CB04009D97A4 /* Default-568h@2x.png */,
+				BE3EFC0A166D69DE00D64D2F /* twl06.dic */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,6 +253,57 @@
 				BE39C2681663CB05009D97A4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE7FF08E1678E23C00100206 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BE7FF0861677AE3A00100206 /* NSData+GZip.h */,
+				BE7FF0871677AE3B00100206 /* NSData+GZip.m */,
+				BEC1472D16667D2100927E21 /* NSArray+WWAdditions.h */,
+				BEC1472E16667D2100927E21 /* NSArray+WWAdditions.m */,
+				BE7FF07B1671575A00100206 /* UIAlertView+WWAdditions.h */,
+				BE7FF07C1671575A00100206 /* UIAlertView+WWAdditions.m */,
+				BE3EFC04166D276700D64D2F /* UIColor+WWAdditions.h */,
+				BE3EFC05166D276700D64D2F /* UIColor+WWAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		BE7FF08F1678E27100100206 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE39C2761663DA43009D97A4 /* WWFrequency.h */,
+				BE39C2771663DA43009D97A4 /* WWFrequency.m */,
+				BE39C27B16641162009D97A4 /* WWTile.h */,
+				BE39C27C16641162009D97A4 /* WWTile.m */,
+				BE39C27F1664179B009D97A4 /* WWPlayer.h */,
+				BE39C2801664179B009D97A4 /* WWPlayer.m */,
+				BE39C28316641A2D009D97A4 /* WWBoard.h */,
+				BE39C28416641A2D009D97A4 /* WWBoard.m */,
+				BE39C28716641B19009D97A4 /* WWPosition.h */,
+				BE39C28816641B19009D97A4 /* WWPosition.m */,
+				BE39C28B16641B20009D97A4 /* WWMove.h */,
+				BE39C28C16641B20009D97A4 /* WWMove.m */,
+				BE4A27D3166515B000E1EA5D /* WWGame.h */,
+				BE4A27D4166515B000E1EA5D /* WWGame.m */,
+				BE4A27D816654C2200E1EA5D /* WWTurn.h */,
+				BE4A27D916654C2200E1EA5D /* WWTurn.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE7FF0901678E39200100206 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BED80F8816690D4800F1F3D7 /* WWTileView.h */,
+				BED80F8916690D4800F1F3D7 /* WWTileView.m */,
+				BE3EFC01166C357400D64D2F /* WWPositionView.h */,
+				BE3EFC02166C357400D64D2F /* WWPositionView.m */,
+				BE3EFC10166E941600D64D2F /* WWPlayerPointsView.h */,
+				BE3EFC11166E941600D64D2F /* WWPlayerPointsView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +384,9 @@
 				BE39C24F1663CB04009D97A4 /* Default-568h@2x.png in Resources */,
 				BE39C2521663CB04009D97A4 /* MainStoryboard_iPhone.storyboard in Resources */,
 				BE39C2551663CB04009D97A4 /* MainStoryboard_iPad.storyboard in Resources */,
+				BE3EFC0B166D69DE00D64D2F /* twl06.dic in Resources */,
+				BEFBBF08166EB66F00693092 /* wordwars57x57.png in Resources */,
+				BEFBBF0A166EB6AD00693092 /* wordwars114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE39C26A1663CB05009D97A4 /* InfoPlist.strings in Resources */,
+				BE3EFC0C166D69DE00D64D2F /* twl06.dic in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +425,25 @@
 				BE39C2451663CB04009D97A4 /* main.m in Sources */,
 				BE39C2491663CB04009D97A4 /* WWAppDelegate.m in Sources */,
 				BE39C2581663CB04009D97A4 /* WWViewController.m in Sources */,
+				BE39C2781663DA43009D97A4 /* WWFrequency.m in Sources */,
+				BE39C27D16641162009D97A4 /* WWTile.m in Sources */,
+				BE39C2811664179B009D97A4 /* WWPlayer.m in Sources */,
+				BE39C28516641A2D009D97A4 /* WWBoard.m in Sources */,
+				BE39C28916641B19009D97A4 /* WWPosition.m in Sources */,
+				BE39C28D16641B20009D97A4 /* WWMove.m in Sources */,
+				BE4A27D5166515B000E1EA5D /* WWGame.m in Sources */,
+				BE4A27DA16654C2300E1EA5D /* WWTurn.m in Sources */,
+				BEC1472F16667D2100927E21 /* NSArray+WWAdditions.m in Sources */,
+				BED80F8A16690D4800F1F3D7 /* WWTileView.m in Sources */,
+				BE3EFC03166C357400D64D2F /* WWPositionView.m in Sources */,
+				BE3EFC06166D276700D64D2F /* UIColor+WWAdditions.m in Sources */,
+				BE3EFC0F166E5CDE00D64D2F /* WWGameViewConstraints.m in Sources */,
+				BE3EFC12166E941700D64D2F /* WWPlayerPointsView.m in Sources */,
+				BEFBBF0D16711E3900693092 /* WWGameViewController.m in Sources */,
+				BE7FF07D1671575B00100206 /* UIAlertView+WWAdditions.m in Sources */,
+				BE7FF08516726BBD00100206 /* GCTurnBasedMatchHelper.m in Sources */,
+				BE7FF0881677AE3B00100206 /* NSData+GZip.m in Sources */,
+				BE7FF08D1677F02600100206 /* WWGameCenterSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +523,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,7 +545,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -393,6 +559,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
 				INFOPLIST_FILE = "Wordwars/Wordwars-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -404,6 +571,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wordwars/Wordwars-Prefix.pch";
 				INFOPLIST_FILE = "Wordwars/Wordwars-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -462,6 +630,7 @@
 				BE39C2721663CB05009D97A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE39C2731663CB05009D97A4 /* Build configuration list for PBXNativeTarget "WordwarsTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +639,7 @@
 				BE39C2751663CB05009D97A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

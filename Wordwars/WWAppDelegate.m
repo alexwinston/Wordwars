@@ -8,10 +8,12 @@
 
 #import "WWAppDelegate.h"
 
+#import "GCTurnBasedMatchHelper.h"
+
 @implementation WWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     // Override point for customization after application launch.
     return YES;
 }

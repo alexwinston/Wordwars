@@ -1,22 +1,20 @@
 //
-//  WWPositionView.m
+//  WWAlertView.m
 //  Wordwars
 //
-//  Created by Alex Winston on 12/2/12.
+//  Created by Alex Winston on 12/6/12.
 //  Copyright (c) 2012 Alex Winston. All rights reserved.
 //
 
-#import "WWPositionView.h"
+#import "WWAlertView.h"
 
-@implementation WWPositionView
+@implementation WWAlertView
 
-@synthesize position=_position;
-
-- (id)initWithFrame:(CGRect)frame position:(WWPosition *)position
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _position = position;
+        // Initialization code
     }
     return self;
 }

@@ -21,6 +21,7 @@
 @interface WWGameViewController : UIViewController <WWGameDelegate>
 {
 @private
+    GKTurnBasedMatch *_match;
     WWGame *_game;
     WWGameViewConstraints *_gameViewConstraints;
     NSMutableArray *_tileViews;
@@ -33,5 +34,5 @@
 }
 @property (nonatomic, strong) WWTileView *dragObject;
 @property (nonatomic, assign) CGPoint touchOffset;
-- (WWGameViewController *)initWithGame:(WWGame *)game;
+- (WWGameViewController *)initWithMatch:(GKTurnBasedMatch *)match game:(WWGame *)game;
 @end
