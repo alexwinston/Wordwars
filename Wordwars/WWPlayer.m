@@ -7,32 +7,27 @@
 //
 
 #import "WWPlayer.h"
+
 #import "NSArray+WWAdditions.h"
-#import "UIColor+WWAdditions.h"
 
 @implementation WWPlayer
 
+@synthesize number=_number;
 @synthesize name=_name;
-@synthesize color=_color;
 @synthesize rack=_rack;
 @synthesize points=_points;
 
-+(WWPlayer *) playerWithName:(NSString *)name
++(WWPlayer *) playerWithNumber:(int)number name:(NSString *)name
 {
-    return [[WWPlayer alloc] initWithName:name color:nil];
+    return [[WWPlayer alloc] initWithNumber:number name:name];
 }
 
-+(WWPlayer *) playerWithName:(NSString *)name color:(UIColor *)color
-{
-    return [[WWPlayer alloc] initWithName:name color:color];
-}
-
--(WWPlayer *) initWithName:(NSString *)name color:(UIColor *)color
+-(WWPlayer *) initWithNumber:(int)number name:(NSString *)name
 {
     if (self = [super init])
     {
+        _number = number;
         _name = name;
-        _color = color;
         _rack = [NSMutableArray array];
         _points = 0;
     }
@@ -41,8 +36,6 @@
 
 - (void)didEndTurn:(WWTurn *)turn
 {
-    if (_color != nil)
-        _color = [_color colorByDarkeningColor:0.02f];
 }
 
 -(void) shuffleRack

@@ -16,5 +16,5 @@
     WWPlayer *_player;
 }
 @property(nonatomic, readonly, strong) WWPlayer *player;
-- (id)initWithFrame:(CGRect)frame player:(WWPlayer *)player;
+- (id)initWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor player:(WWPlayer *)player;
 @end

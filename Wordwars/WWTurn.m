@@ -13,18 +13,20 @@
 
 @synthesize delegate;
 
+@synthesize number=_number;
 @synthesize player=_player;
 @synthesize moves=_moves;
 
-+(WWTurn *) turnWithPlayer:(WWPlayer *)player
++(WWTurn *) turnWithNumber:(int)number player:(WWPlayer *)player
 {
-    return [[WWTurn alloc] initWithPlayer:player];
+    return [[WWTurn alloc] initWithNumber:number player:player];
 }
 
--(WWTurn *) initWithPlayer:(WWPlayer *)player
+-(WWTurn *) initWithNumber:(int)number player:(WWPlayer *)player
 {
     if (self = [super init])
     {
+        _number = number;
         _player = player;
         _moves = [NSMutableArray array];
         _word = @"";

@@ -14,7 +14,7 @@
 #import "WWGameViewConstraints.h"
 #import "WWTileView.h"
 
-@interface WWViewController : UIViewController <GCTurnBasedMatchHelperDelegate, UITableViewDataSource>
+@interface WWViewController : UIViewController <GCTurnBasedMatchHelperDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     @private
     NSArray *_dictionary;

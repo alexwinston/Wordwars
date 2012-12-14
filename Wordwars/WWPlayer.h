@@ -15,18 +15,17 @@
 @interface WWPlayer : NSObject
 {
     @private
+    int _number;
     NSString *_name;
-    UIColor *_color;
     NSMutableArray *_rack;
     int points;
 }
+@property(nonatomic, readonly, assign) int number;
 @property(nonatomic, readwrite, strong) NSString *name;
-@property(nonatomic, readwrite, strong) UIColor *color;
 @property(nonatomic, readonly, strong) NSMutableArray *rack;
 @property(nonatomic, readwrite, assign) int points;
-+ (WWPlayer *)playerWithName:(NSString *)name;
-+ (WWPlayer *)playerWithName:(NSString *)name color:(UIColor *)color;
-- (WWPlayer *)initWithName:(NSString *)name color:(UIColor *)color;
++ (WWPlayer *)playerWithNumber:(int)number name:(NSString *)name;
+- (WWPlayer *)initWithNumber:(int)number name:(NSString *)name;
 - (void)didEndTurn:(WWTurn *)turn;
 - (void)shuffleRack;
 @end

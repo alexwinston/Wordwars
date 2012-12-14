@@ -24,15 +24,17 @@
 @interface WWTurn : NSObject
 {
     @private
+    int _number;
     WWPlayer *_player;
     NSMutableArray *_moves;
     NSString *_word;
 }
 @property(nonatomic, readwrite, weak) id <WWTurnDelegate> delegate;
+@property(nonatomic, readonly, assign) int number;
 @property(nonatomic, readonly, strong) WWPlayer *player;
 @property(nonatomic, readonly, strong) NSArray *moves;
-+ (WWTurn *)turnWithPlayer:(WWPlayer *)player;
-- (WWTurn *)initWithPlayer:(WWPlayer *)player;
++ (WWTurn *)turnWithNumber:(int)number player:(WWPlayer *)player;
+- (WWTurn *)initWithNumber:(int)number player:(WWPlayer *)player;
 - (BOOL)canMoveTile:(WWTile *)tile toPosition:(WWPosition *)position;
 - (BOOL)moveTile:(WWTile *)tile toPosition:(WWPosition *)position;
 - (BOOL)hasMoves;

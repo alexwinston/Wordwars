@@ -76,14 +76,14 @@
 
 -(void) testPosition
 {
-    WWPlayer *player = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player = [WWPlayer playerWithNumber:0 name:@"1"];
     
     WWPosition *position = [WWPosition positionWithRow:2 column:3];
     STAssertEquals(2, position.row, @"");
     STAssertEquals(3, position.column, @"");
     STAssertFalse([position hasMove], @"");
     STAssertEquals(0, [position pointsForPlayer:player], @"");
-    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithName:@"1"]], @"");
+    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithNumber:0 name:@"1"]], @"");
     [position undoMove];
     STAssertFalse([position hasMove], @"");
     
@@ -92,12 +92,12 @@
                                   position:[[WWPosition alloc] initWithRow:0 column:0]];
     STAssertTrue([position hasMove], @"");
     STAssertEquals(1, [position pointsForPlayer:player], @"");
-    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithName:@"1"]], @"");
+    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithNumber:0 name:@"1"]], @"");
     
     [position undoMove];
     STAssertFalse([position hasMove], @"");
     STAssertEquals(0, [position pointsForPlayer:player], @"");
-    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithName:@"1"]], @"");
+    STAssertEquals(0, [position pointsForPlayer:[WWPlayer playerWithNumber:0 name:@"1"]], @"");
 }
 
 -(void) testPlayer
@@ -108,7 +108,7 @@
     WWTile *tile4 = [WWTile tileWithLetter:@"A" points:1];
     WWTile *tile5 = [WWTile tileWithLetter:@"D" points:2];
     
-    WWPlayer *player = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player = [WWPlayer playerWithNumber:0 name:@"1"];
     [player.rack addObject:tile1];
     [player.rack addObject:tile2];
     [player.rack addObject:tile3];
@@ -133,7 +133,7 @@
     WWTile *tile3 = [WWTile tileWithLetter:@"C" points:3];
     WWTile *tile4 = [WWTile tileWithLetter:@"A" points:1];
     
-    WWPlayer *player = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player = [WWPlayer playerWithNumber:0 name:@"1"];
     [player.rack addObject:tile1];
     [player.rack addObject:tile2];
     [player.rack addObject:tile3];
@@ -168,13 +168,13 @@
     WWTile *tile3 = [WWTile tileWithLetter:@"C" points:3];
     WWTile *tile4 = [WWTile tileWithLetter:@"A" points:1];
     
-    WWPlayer *player = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player = [WWPlayer playerWithNumber:0 name:@"1"];
     [player.rack addObject:tile1];
     [player.rack addObject:tile2];
     [player.rack addObject:tile3];
     [player.rack addObject:tile4];
     
-    WWTurn *turn1 = [WWTurn turnWithPlayer:player];
+    WWTurn *turn1 = [WWTurn turnWithNumber:0 player:player];
     STAssertEquals(0U, turn1.moves.count, @"");
     STAssertEquals(4U, player.rack.count, @"");
     STAssertTrue([turn1 canMoveTile:tile1 toPosition:[board positionAtRow:0 column:0]], @"");
@@ -190,11 +190,11 @@
     [turn1 moveTile:tile2 toPosition:[board positionAtRow:0 column:0]];
     STAssertTrue([[board positionAtRow:0 column:0] hasMove], @"");
     
-    WWTurn *turn2 = [WWTurn turnWithPlayer:player];
+    WWTurn *turn2 = [WWTurn turnWithNumber:1 player:player];
     STAssertFalse([turn2 canMoveTile:tile1 toPosition:[board positionAtRow:0 column:0]], @"");
     STAssertTrue([turn2 canMoveTile:tile2 toPosition:[board positionAtRow:0 column:0]], @"");
     
-    WWTurn *turn3 = [WWTurn turnWithPlayer:player];
+    WWTurn *turn3 = [WWTurn turnWithNumber:2 player:player];
     STAssertEqualObjects(@"", [turn3 word], @"");
     [turn3 moveTile:[WWTile tileWithLetter:@"T" points:1] toPosition:[WWPosition positionWithRow:0 column:0]];
     STAssertEqualObjects(@"T", [turn3 word], @"");
@@ -205,7 +205,7 @@
     [turn3 moveTile:[WWTile tileWithLetter:@"T" points:1] toPosition:[WWPosition positionWithRow:0 column:3]];
     STAssertEqualObjects(@"TEST", [turn3 word], @"");
     
-    WWTurn *turn4 = [WWTurn turnWithPlayer:player];
+    WWTurn *turn4 = [WWTurn turnWithNumber:3 player:player];
     STAssertEqualObjects(@"", [turn4 word], @"");
     [turn4 moveTile:[WWTile tileWithLetter:@"T" points:1] toPosition:[WWPosition positionWithRow:1 column:1]];
     STAssertEqualObjects(@"T", [turn4 word], @"");
@@ -216,7 +216,7 @@
     [turn4 moveTile:[WWTile tileWithLetter:@"T" points:1] toPosition:[WWPosition positionWithRow:4 column:1]];
     STAssertEqualObjects(@"TEST", [turn4 word], @"");
     
-    WWTurn *turn5 = [WWTurn turnWithPlayer:player];
+    WWTurn *turn5 = [WWTurn turnWithNumber:4 player:player];
     STAssertFalse([turn5 isValid], @"");
     [turn5 moveTile:[WWTile tileWithLetter:@"A" points:1] toPosition:[WWPosition positionWithRow:0 column:0]];
     STAssertFalse([turn5 isValid], @"");
@@ -240,14 +240,14 @@
 
 - (void)testTurnWordForMovesWithUnorderedPositions
 {    
-    WWTurn *turn1 = [WWTurn turnWithPlayer:[WWPlayer playerWithName:@"1"]];
+    WWTurn *turn1 = [WWTurn turnWithNumber:0 player:[WWPlayer playerWithNumber:0 name:@"1"]];
     [turn1 moveTile:[WWTile tileWithLetter:@"E" points:1] toPosition:[WWPosition positionWithRow:4 column:0]];
     [turn1 moveTile:[WWTile tileWithLetter:@"A" points:1] toPosition:[WWPosition positionWithRow:2 column:0]];
     [turn1 moveTile:[WWTile tileWithLetter:@"B" points:1] toPosition:[WWPosition positionWithRow:1 column:0]];
     [turn1 moveTile:[WWTile tileWithLetter:@"K" points:1] toPosition:[WWPosition positionWithRow:3 column:0]];
     STAssertEqualObjects(@"BAKE", [turn1 word], @"");
     
-    WWTurn *turn2 = [WWTurn turnWithPlayer:[WWPlayer playerWithName:@"1"]];
+    WWTurn *turn2 = [WWTurn turnWithNumber:1 player:[WWPlayer playerWithNumber:0 name:@"1"]];
     [turn2 moveTile:[WWTile tileWithLetter:@"Y" points:1] toPosition:[WWPosition positionWithRow:0 column:4]];
     [turn2 moveTile:[WWTile tileWithLetter:@"R" points:1] toPosition:[WWPosition positionWithRow:0 column:2]];
     [turn2 moveTile:[WWTile tileWithLetter:@"T" points:1] toPosition:[WWPosition positionWithRow:0 column:1]];
@@ -257,11 +257,11 @@
 
 -(void) testGame
 {
-    WWPlayer *player1 = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
     [player1.rack addObject:[WWTile tileWithLetter:@"A" points:1]];
     [player1.rack addObject:[WWTile tileWithLetter:@"T" points:1]];
-    WWPlayer *player2 = [WWPlayer playerWithName:@"2"];
-    WWPlayer *player3 = [WWPlayer playerWithName:@"2"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:1 name:@"2"];
+    WWPlayer *player3 = [WWPlayer playerWithNumber:2 name:@"3"];
     
     WWGame *game = [WWGame gameWithDictionary:@[ @"AT" ]
                                         board:[WWBoard boardWithRows:5 columns:5]
@@ -269,6 +269,7 @@
     STAssertEquals(5U, player1.rack.count, @"");
     STAssertEquals(5U, player2.rack.count, @"");
     STAssertEquals(5U, player3.rack.count, @"");
+    STAssertEquals(0, game.currentTurn.number, @"");
     STAssertEqualObjects(player1, game.currentTurn.player, @"");
     STAssertEqualObjects(player2, [game nextPlayersTurn:player1], @"");
     STAssertEqualObjects(player3, [game nextPlayersTurn:player2], @"");
@@ -276,6 +277,7 @@
     
     WWPlayer *currentPlayer = game.currentTurn.player;
     STAssertFalse([game playCurrentTurn], @"");
+    STAssertEquals(0, game.currentTurn.number, @"");
     STAssertEqualObjects(player1, currentPlayer, @"");
     STAssertEquals(5U, currentPlayer.rack.count, @"");
     
@@ -283,12 +285,14 @@
     [game.currentTurn moveTile:tile1 toPosition:[WWPosition positionWithRow:0 column:0]];
     STAssertEquals(4U, currentPlayer.rack.count, @"");
     STAssertFalse([game playCurrentTurn], @"");
+    STAssertEquals(0, game.currentTurn.number, @"");
     STAssertFalse([currentPlayer.rack containsObject:tile1], @"");
     
     WWTile *tile2 = [currentPlayer.rack objectAtIndex:0];
     [game.currentTurn moveTile:tile2 toPosition:[WWPosition positionWithRow:0 column:1]];
     STAssertEquals(3U, currentPlayer.rack.count, @"");
     STAssertTrue([game playCurrentTurn], @"");
+    STAssertEquals(1, game.currentTurn.number, @"");
     STAssertEquals(5U, currentPlayer.rack.count, @"");
     STAssertFalse([currentPlayer.rack containsObject:tile1], @"");
     STAssertFalse([currentPlayer.rack containsObject:tile2], @"");
@@ -296,11 +300,11 @@
 
 - (void)testGameFinished
 {
-    WWPlayer *player1 = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
     [player1.rack addObject:[WWTile tileWithLetter:@"C" points:1]];
     [player1.rack addObject:[WWTile tileWithLetter:@"A" points:1]];
     [player1.rack addObject:[WWTile tileWithLetter:@"T" points:1]];
-    WWPlayer *player2 = [WWPlayer playerWithName:@"2"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:1 name:@"2"];
     [player2.rack addObject:[WWTile tileWithLetter:@"A" points:1]];
     [player2.rack addObject:[WWTile tileWithLetter:@"N" points:1]];
     [player2.rack addObject:[WWTile tileWithLetter:@"T" points:1]];
@@ -362,21 +366,21 @@
 {
     NSArray *gameDictionary = @[ @"RACK", @"ANT", @"FRIEND", @"IN", @"HAT" ];
     
-    WWPlayer *player1 = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
     [player1.rack addObject:[WWGame tileWithLetter:@"R"]];
     [player1.rack addObject:[WWGame tileWithLetter:@"A"]];
     [player1.rack addObject:[WWGame tileWithLetter:@"C"]];
     [player1.rack addObject:[WWGame tileWithLetter:@"K"]];
     [player1.rack addObject:[WWGame tileWithLetter:@"I"]];
     [player1.rack addObject:[WWGame tileWithLetter:@"N"]];
-    WWPlayer *player2 = [WWPlayer playerWithName:@"2"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:1 name:@"2"];
     [player2.rack addObject:[WWGame tileWithLetter:@"A"]];
     [player2.rack addObject:[WWGame tileWithLetter:@"N"]];
     [player2.rack addObject:[WWGame tileWithLetter:@"T"]];
     [player2.rack addObject:[WWGame tileWithLetter:@"H"]];
     [player2.rack addObject:[WWGame tileWithLetter:@"A"]];
     [player2.rack addObject:[WWGame tileWithLetter:@"T"]];
-    WWPlayer *player3 = [WWPlayer playerWithName:@"3"];
+    WWPlayer *player3 = [WWPlayer playerWithNumber:2 name:@"3"];
     [player3.rack addObject:[WWGame tileWithLetter:@"F"]];
     [player3.rack addObject:[WWGame tileWithLetter:@"R"]];
     [player3.rack addObject:[WWGame tileWithLetter:@"I"]];
@@ -389,7 +393,11 @@
                                       players:@[ player1, player2, player3 ]];
     
     NSData *gameData1 = [WWGameCenterSerialization dataFromGame:game];
-    STAssertEqualObjects(gameData1, [WWGameCenterSerialization dataFromGame:[WWGameCenterSerialization gameFromData:gameData1 dictionary:gameDictionary]], @"");
+    WWGame *game1 = [WWGameCenterSerialization gameFromData:gameData1 dictionary:gameDictionary];
+    STAssertEqualObjects(gameData1, [WWGameCenterSerialization dataFromGame:game1], @"");
+    STAssertEquals(6, game1.board.rows, @"");
+    STAssertEquals(6, game1.board.columns, @"");
+    STAssertEquals(0, game1.currentTurn.player.number, @"");
     
     [game.currentTurn moveTile:[player1.rack objectAtIndex:0] toPosition:[game positionAtRow:0 column:0]];
     [game.currentTurn moveTile:[player1.rack objectAtIndex:0] toPosition:[game positionAtRow:0 column:1]];
@@ -401,6 +409,7 @@
     WWGame *game2 = [WWGameCenterSerialization gameFromData:gameData2 dictionary:gameDictionary];
     STAssertEqualObjects(gameData2, [WWGameCenterSerialization dataFromGame:game2], @"");
     STAssertEqualObjects([game2.players valueForKeyPath:@"points"], [game.players valueForKeyPath:@"points"], @"");
+    STAssertEquals(1, game2.currentTurn.player.number, @"");
     
     [game.currentTurn moveTile:[player2.rack objectAtIndex:0] toPosition:[game positionAtRow:0 column:0]];
     [game.currentTurn moveTile:[player2.rack objectAtIndex:0] toPosition:[game positionAtRow:1 column:0]];
@@ -408,7 +417,9 @@
     [game playCurrentTurn];
     
     NSData *gameData3 = [WWGameCenterSerialization dataFromGame:game];
-    STAssertEqualObjects(gameData3, [WWGameCenterSerialization dataFromGame:[WWGameCenterSerialization gameFromData:gameData3 dictionary:gameDictionary]], @"");
+    WWGame *game3 =[WWGameCenterSerialization gameFromData:gameData3 dictionary:gameDictionary];
+    STAssertEqualObjects(gameData3, [WWGameCenterSerialization dataFromGame:game3], @"");
+    STAssertEquals(2, game3.currentTurn.player.number, @"");
     
     [game skipCurrentTurn];
     [game skipCurrentTurn];
@@ -416,6 +427,8 @@
     
     NSData *gameData4 = [WWGameCenterSerialization dataFromGame:game];
     STAssertEqualObjects(gameData4, [WWGameCenterSerialization dataFromGame:[WWGameCenterSerialization gameFromData:gameData4 dictionary:gameDictionary]], @"");
+    WWGame *game4 = [WWGameCenterSerialization gameFromData:gameData4 dictionary:gameDictionary];
+    STAssertEquals(2, game4.currentTurn.player.number, @"");
     
     [game.currentTurn moveTile:[player3.rack objectAtIndex:0] toPosition:[game positionAtRow:5 column:0]];
     [game.currentTurn moveTile:[player3.rack objectAtIndex:0] toPosition:[game positionAtRow:5 column:1]];
@@ -449,11 +462,37 @@
     STAssertEqualObjects(gameData8, [WWGameCenterSerialization dataFromGame:[WWGameCenterSerialization gameFromData:gameData8 dictionary:gameDictionary]], @"");
 }
 
+- (void)testGameCenterSerializationSkipFirstTurn
+{
+    NSArray *gameDictionary = @[ ];
+    
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:1 name:@"2"];
+    WWPlayer *player3 = [WWPlayer playerWithNumber:2 name:@"3"];
+    
+    WWGame *game = [WWGame gameWithDictionary:gameDictionary
+                                        board:[WWBoard boardWithRows:6 columns:6]
+                                      players:@[ player1, player2, player3 ]];
+    [game skipCurrentTurn];
+    
+    NSData *gameData1 = [WWGameCenterSerialization dataFromGame:game];
+    WWGame *game1 = [WWGameCenterSerialization gameFromData:gameData1 dictionary:gameDictionary];
+    STAssertEqualObjects(gameData1, [WWGameCenterSerialization dataFromGame:game1], @"");
+    STAssertEquals(1, game1.currentTurn.player.number, @"");
+    
+    [game skipCurrentTurn];
+    
+    NSData *gameData2 = [WWGameCenterSerialization dataFromGame:game];
+    WWGame *game2 = [WWGameCenterSerialization gameFromData:gameData2 dictionary:gameDictionary];
+    STAssertEqualObjects(gameData2, [WWGameCenterSerialization dataFromGame:game2], @"");
+    STAssertEquals(2, game2.currentTurn.player.number, @"");
+}
+
 - (void)testClearTurnWithMoveAtPositionForPreviousMoveFromDifferentPlayer
 {
-    WWPlayer *player1 = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
     [player1.rack addObjectsFromArray:@[ [WWTile tileWithLetter:@"A" points:1], [WWTile tileWithLetter:@"T" points:3]]];
-    WWPlayer *player2 = [WWPlayer playerWithName:@"2"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:0 name:@"2"];
     [player2.rack addObjectsFromArray:@[ [WWTile tileWithLetter:@"I" points:4], [WWTile tileWithLetter:@"T" points:2]]];
     
     WWGame *game = [WWGame gameWithDictionary:@[ @"AT", @"IT" ]
@@ -518,13 +557,13 @@
     WWTile *e = [WWTile tileWithLetter:@"E" points:1];
     WWTile *i = [WWTile tileWithLetter:@"I" points:1];
     
-    WWPlayer *player1 = [WWPlayer playerWithName:@"1"];
+    WWPlayer *player1 = [WWPlayer playerWithNumber:0 name:@"1"];
     [player1.rack addObjectsFromArray:@[ b, c, d ]];
     
-    WWPlayer *player2 = [WWPlayer playerWithName:@"2"];
+    WWPlayer *player2 = [WWPlayer playerWithNumber:1 name:@"2"];
     [player2.rack addObjectsFromArray: @[ a, e, i ]];
     
-    WWPlayer *player3 = [WWPlayer playerWithName:@"3"];
+    WWPlayer *player3 = [WWPlayer playerWithNumber:2 name:@"3"];
     [player3.rack addObjectsFromArray:@[ b, a, d ]];
     
     WWGame *game = [WWGame gameWithDictionary:@[ @"" ]

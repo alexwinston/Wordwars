@@ -50,7 +50,9 @@
             
             for (GKTurnBasedMatch *match in matches) {
                 NSLog(@"%@", [[NSString alloc] initWithData:match.matchData encoding:NSUTF8StringEncoding]);
-                [_matchGames setObject:[WWGameCenterSerialization gameFromData:match.matchData dictionary:_dictionary] forKey:match.matchID];
+                // TODO: Remove this check and get match from user preferences
+                if ([match.matchData bytes])
+                    [_matchGames setObject:[WWGameCenterSerialization gameFromData:match.matchData dictionary:_dictionary] forKey:match.matchID];
             }
 
             [_matchesTableView reloadData];
@@ -64,16 +66,43 @@
 
     NSMutableArray *players = [NSMutableArray array];
     [match.participants enumerateObjectsUsingBlock:^(GKTurnBasedParticipant *participant, NSUInteger index, BOOL *stop) {
-        [players addObject:[WWPlayer playerWithName:@"Opponent"
-                                            color:[UIColor colorWithRed:76/255.0 green:198/255.0 blue:251/255.0 alpha:1.0]]];
+        [players addObject:[WWPlayer playerWithNumber:index name:@"Opponent"]];
     }];
     
     WWGame *game = [WWGame gameWithDictionary:_dictionary board:[WWBoard boardWithRows:6 columns:6] players:players];
     game.currentTurn.player.name = [GKLocalPlayer localPlayer].alias;
     
-    [_matches addObject:match];
-    [_matchGames setObject:game forKey:match.matchID];
-    [_matchesTableView reloadData];
+    [match endTurnWithNextParticipant:[match.participants objectAtIndex:0]
+                             matchData:[WWGameCenterSerialization dataFromGame:game]
+                     completionHandler:^(NSError *error) {
+                         if (error) {
+                             NSLog(@"enterNewGame:%@", [error localizedDescription]);
+                         } else {
+                             [_matches addObject:match];
+                             [_matchGames setObject:game forKey:match.matchID];
+                             [_matchesTableView reloadData];
+                         }
+                     }];    
+}
+
+- (void)layoutMatch:(GKTurnBasedMatch *)match
+{
+    NSLog(@"layoutMatch:");
+}
+
+- (void)takeTurn:(GKTurnBasedMatch *)match
+{
+    NSLog(@"takeTurn:");
+}
+
+- (void)recieveEndGame:(GKTurnBasedMatch *)match
+{
+    NSLog(@"receiveEndGame:");
+}
+
+- (void)sendNotice:(NSString *)notice forMatch:(GKTurnBasedMatch *)match
+{
+    NSLog(@"sendNotice:forMatch:");
 }
 
 #pragma mark - UITableViewDataSource methods

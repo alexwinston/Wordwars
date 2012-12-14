@@ -10,6 +10,7 @@
 
 #import "NSArray+WWAdditions.h"
 #import "UIAlertView+WWAdditions.h"
+#import "UIColor+WWAdditions.h"
 
 #import "WWGameCenterSerialization.h"
 
@@ -20,6 +21,25 @@
 
 @synthesize dragObject;
 @synthesize touchOffset;
+
++ (UIColor *)colorForPlayer:(WWPlayer *)player
+{
+    static NSArray *playerColors = nil;
+    if (!playerColors) {
+        playerColors = @[
+        [UIColor colorWithRed:76/255.0 green:198/255.0 blue:251/255.0 alpha:1.0],
+        [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0],
+        [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0],
+        [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0] ];
+    }
+    
+    return [playerColors objectAtIndex:player.number];
+}
+
++ (UIColor *)colorForTurn:(WWTurn *)turn player:(WWPlayer *)player
+{
+    return [[WWGameViewController colorForPlayer:player] colorByDarkeningColor:0.02 * turn.number];
+}
 
 - (WWGameViewController *)initWithMatch:(GKTurnBasedMatch *)match game:(WWGame *)game
 {
@@ -51,7 +71,7 @@
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     
     _tileViews = [NSMutableArray arrayWithCapacity:_gameViewConstraints.tileCount];
-    [self rackTilesForPlayer: _game.currentTurn.player];
+    [self rackTilesForTurn: _game.currentTurn];
     
     _positionViews = [NSMutableArray arrayWithCapacity:_gameViewConstraints.tileCount * _gameViewConstraints.tileCount];
     for (int row = 0; row < _gameViewConstraints.tileCount; row++) {
@@ -96,6 +116,7 @@
     
     for (WWPlayer *player in _game.players) {
         WWPlayerPointsView *playerPointsLabel = [[WWPlayerPointsView alloc] initWithFrame:[_gameViewConstraints frameForPlayerPointsWithPlayer:player]
+                                                                          backgroundColor:[WWGameViewController colorForPlayer:player]
                                                                                    player:player];
         playerPointsLabel.userInteractionEnabled = YES;
         [playerPointsLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerPointsTouched:)]];
@@ -114,16 +135,16 @@
         for (WWMove *move in turn.moves) {
             [self.view addSubview:[[WWTileView alloc] initWithFrame:[_gameViewConstraints frameForPositionAtRow:move.position.row column:move.position.column]
                                                                tile:move.tile
-                                                    backgroundColor:[UIColor redColor]]];
+                                                    backgroundColor:[WWGameViewController colorForTurn:turn player:turn.player]]];
         }
     }
 }
 
-- (void)rackTilesForPlayer:(WWPlayer *)player {
+- (void)rackTilesForTurn:(WWTurn *)turn {
     for (int i = 0; i < _gameViewConstraints.tileCount; i++) {
         WWTileView *tileView = [[WWTileView alloc] initWithFrame:[_gameViewConstraints frameForTileAtIndex:i]
-                                                            tile:[player.rack objectAtIndex:i]
-                                                 backgroundColor:player.color];
+                                                            tile:[turn.player.rack objectAtIndex:i]
+                                                 backgroundColor:[WWGameViewController colorForTurn:turn player:turn.player]];
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(tileViewDoubleTapped:)];
         doubleTap.numberOfTapsRequired = 2;
@@ -203,15 +224,7 @@
         return;
     }
     
-    if ([_game playCurrentTurn]) {
-        [_match endTurnWithNextParticipant:[_match.participants objectAtIndex:[_game playerNumberForPlayer:_game.currentTurn.player]]
-                                 matchData:[WWGameCenterSerialization dataFromGame:_game]
-                         completionHandler:^(NSError *error) {
-                             if (error) {
-                                 NSLog(@"endTurnWithNextParticipant:%@", [error localizedDescription]);
-                             }
-                         }];
-    } else {
+    if (![_game playCurrentTurn]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid word or tile placement"
                                                         message:@""
                                                        delegate:nil
@@ -330,26 +343,9 @@
     }
 }
 
-#pragma mark - WWGameDelegate methods
-
-- (void)game:(WWGame *)game didChangeMoves:(NSArray *)moves forTurn:(WWTurn *)turn
+- (void)endedTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
 {
-    [self updatePlayerPointLabels];
-    [self showHideClearShuffleLabels:moves];
-}
-
-- (void)game:(WWGame *)game didStartTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
-{
-    [self rackTilesForPlayer:player];
-    
-    // Update the current player indicator
-    _currentPlayerIndicatorView.frame = [_gameViewConstraints frameForPlayerIndicatorWithPlayer:player];
-    
-    [self showHideClearShuffleLabels:turn.moves];
-}
-
-- (void)game:(WWGame *)game didEndTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
-{
+    NSLog(@"endedTurn:forPlayer:");
     // Remove the last tiles played for this player
     [[_playersLastMoveTileViews objectForKey:player.name] removeAllObjects];
     
@@ -363,6 +359,42 @@
             [[_playersLastMoveTileViews objectForKey:player.name] addObject:tileView];
     }
     [_tileViews removeAllObjects];
+
+}
+
+#pragma mark - WWGameDelegate methods
+
+- (void)game:(WWGame *)game didChangeMoves:(NSArray *)moves forTurn:(WWTurn *)turn
+{
+    NSLog(@"game:didChangeMoves:forTurn:");
+    [self updatePlayerPointLabels];
+    [self showHideClearShuffleLabels:moves];
+}
+
+- (void)game:(WWGame *)game didStartTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
+{
+    NSLog(@"game:didStartTurn:forPlayer:");
+    [self rackTilesForTurn:turn];
+    
+    // Update the current player indicator
+    _currentPlayerIndicatorView.frame = [_gameViewConstraints frameForPlayerIndicatorWithPlayer:player];
+    
+    [self showHideClearShuffleLabels:turn.moves];
+}
+
+- (void)game:(WWGame *)game didEndTurn:(WWTurn *)turn forPlayer:(WWPlayer *)player
+{
+    NSLog(@"game:didEndTurn:forPlayer:");
+    [_match endTurnWithNextParticipant:[_match.participants objectAtIndex:game.currentTurn.player.number]
+                             matchData:[WWGameCenterSerialization dataFromGame:game]
+                     completionHandler:^(NSError *error) {
+                         if (error) {
+                             NSLog(@"endTurnWithNextParticipant:%@", [error localizedDescription]);
+                         } else {
+                             // TODO Refactor because it is called after game:didStartTurn:forPlayer:
+                             [self endedTurn:turn forPlayer:player];
+                         }
+                     }];
 }
 
 - (void)gameDidFinish:(WWGame *)game withWinningPlayers:(NSArray *)players points:(int)points

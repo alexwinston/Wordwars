@@ -27,7 +27,6 @@
     NSArray *_dictionary;
     WWBoard *_board;
     NSArray *_players;
-    NSArray *_playerColors;
     WWPlayer *_currentPlayer;
     WWTurn *_currentTurn;
     NSMutableArray *_playedTurns;

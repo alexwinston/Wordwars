@@ -96,22 +96,18 @@
                                   @"Z": @(0.3/100.0) }];
         
         _dictionary = dictionary;
+        
         _board = board;
         
         _players = players;
-        _playerColors = @[ [UIColor colorWithRed:76/255.0 green:198/255.0 blue:251/255.0 alpha:1.0],
-                           [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0],
-                           [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0],
-                           [UIColor colorWithRed:220/255.0 green:41/255.0 blue:43/255.0 alpha:1.0] ];
-        
         _currentPlayer = [_players objectAtIndex:0];
-        _currentTurn = [WWTurn turnWithPlayer:_currentPlayer];
+        _currentTurn = [WWTurn turnWithNumber:0 player:_currentPlayer];
         _currentTurn.delegate = self;
+        
         _playedTurns = [NSMutableArray array];
         _playedTurnWords = [NSMutableArray array];
         
         [_players enumerateObjectsUsingBlock:^(WWPlayer *player, NSUInteger index, BOOL *stop) {
-            player.color = [_playerColors objectAtIndex:index];
             [self drawTilesWithRackSize:_board.rows forPlayer:player];
         }];
         
@@ -203,16 +199,18 @@
     [_playedTurns addObject:turn];
     [_playedTurnWords addObject:[turn word]];
     
-    [self turn:_currentTurn endedForPlayer:_currentPlayer];
+    WWTurn *endedTurn = _currentTurn;
+    
+    _currentPlayer = [self nextPlayersTurn:_currentPlayer];
+    _currentTurn = [WWTurn turnWithNumber:[_playedTurns count] player:_currentPlayer];
+    _currentTurn.delegate = self;
+    
+    [self drawTilesWithRackSize:_board.rows forPlayer:endedTurn.player];
+    
+    [self turn:endedTurn endedForPlayer:endedTurn.player];
     
     if (![self hasMoves])
         return [self gameFinished];
-    
-    [self drawTilesWithRackSize:_board.rows forPlayer:_currentPlayer];
-    
-    _currentPlayer = [self nextPlayersTurn:_currentPlayer];
-    _currentTurn = [WWTurn turnWithPlayer:_currentPlayer];
-    _currentTurn.delegate = self;
     
     [self turn:_currentTurn startedForPlayer:_currentPlayer];
     

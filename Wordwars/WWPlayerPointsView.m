@@ -12,7 +12,7 @@
 
 @synthesize player=_player;
 
-- (id)initWithFrame:(CGRect)frame player:(WWPlayer *)player
+- (id)initWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor player:(WWPlayer *)player
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -21,7 +21,7 @@
         self.textAlignment = UITextAlignmentCenter;
         self.text = [NSString stringWithFormat:@"%d", player.points];
         self.textColor = [UIColor blackColor];
-        self.backgroundColor = _player.color;
+        self.backgroundColor = backgroundColor;
     }
     return self;
 }
